@@ -1,0 +1,64 @@
+version: '3.2'
+
+services:
+
+  controller:
+    build: linstt-controller/
+    image: linagora/controller
+    depends_on:
+      - speech-enhencement
+      - kaldi
+      - offline-server
+    volumes:
+      - ./media:/opt/media
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    env_file: .env
+    environment:
+      - IS_OFFLINE
+
+  speech-enhencement:
+    build: linstt-speech-enhancement/
+    image: linagora/speech-enhencement
+    expose:
+      - "5000"
+    env_file: .env
+    environment:
+      - NORM
+      - NB_PROCESS
+
+  kaldi:
+    build: linstt-kaldi-gstreamer/
+    image: linagora/kaldi
+    expose:
+      - "80"
+    volumes:
+      - ${MODEL_PATH}:/opt/models
+    env_file: .env
+    environment:
+      - NB_WORKERS
+      - MODEL_PATH
+
+  offline-worker:
+    build: linstt-offline-decoding/modules/worker_offline/
+    image: linagora/stt-offline
+    depends_on:
+      - offline-server
+    volumes:
+      - ${MODEL_PATH}model/:/opt/models
+    env_file: .env
+    environment:
+      - MODEL_PATH
+      - OFFLINE_PORT
+
+  offline-server:
+    build: linstt-offline-decoding/
+    image: linagora/stt-offline-server
+    expose:
+      - ${OFFLINE_PORT}
+    ports:
+      - ${OFFLINE_PORT}:${OFFLINE_PORT}
+    env_file: .env
+    environment:
+      - OFFLINE_PORT

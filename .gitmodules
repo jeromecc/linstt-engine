@@ -1,0 +1,12 @@
+[submodule "linstt-controller"]
+	path = linstt-controller
+	url = https://ci.linagora.com/linagora/lgs/labs/linstt-controller.git
+[submodule "linstt-speech-enhancement"]
+	path = linstt-speech-enhancement
+	url = https://ci.linagora.com/linagora/lgs/labs/linstt-speech-enhancement.git
+[submodule "linstt-kaldi-gstreamer"]
+	path = linstt-kaldi-gstreamer
+	url = https://ci.linagora.com/linagora/lgs/labs/linstt-kaldi-gstreamer.git
+[submodule "linstt-offline-decoding"]
+	path = linstt-offline-decoding
+	url = https://ci.linagora.com/linagora/lgs/labs/linstt-offline-decoding.git
