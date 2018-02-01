@@ -27,6 +27,10 @@ Run `git clone https://github.com/linto-ai/linstt-engine.git`
 You can build all docker image by using `docker-compose build` from the `linstt-engine` folder. It will automatically build all other docker.
 You can also check the configuration of the submodule `linstt-controller` just bellow.
 
+Also, this repository contains submodules. Depending on your version of git, the following commands [may be necessary](https://chrisjean.com/git-submodules-adding-using-removing-and-updating/) to pull the content of this submodules onto your disk:
+Move to pulled repository and run `git submodule init`.
+Followed by `git submodule update`.
+
 ### 2 - Configure linstt-controller
 
 The configuration of the controller maybe need to be updated, depending on the names of the containers that will be deployed in docker. Check in `linstt-engine/linstt-controller/config.json` that the indicated hosts match the ones of your docker containers: 
