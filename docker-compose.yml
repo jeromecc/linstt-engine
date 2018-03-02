@@ -46,7 +46,7 @@ services:
     depends_on:
       - offline-server
     volumes:
-      - ${MODEL_PATH}model/:/opt/models
+      - ${MODEL_PATH}:/opt/models
     env_file: .env
     environment:
       - MODEL_PATH
