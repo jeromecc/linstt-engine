@@ -7,6 +7,7 @@
 IP_SERVER=$1
 AUDIO_FOLDER=$2
 NAME_FILE=$3
+MODEL=$4
 
 destDir=result/
 destFile=result/concatTranscript.txt
@@ -27,9 +28,9 @@ touch $destFile
 touch $resultFile
 
 for filename in ${AUDIO_FOLDER}/*.wav; do 
-	transcript=$(curl -X POST http://${IP_SERVER}:3000/api/transcript -H "Content-type: audio/wave" --data-binary "@$filename")
-	sleep 2
-	res=$(echo $transcript | grep -o "\[.*\]" | sed "s/\}\]//g" | sed "s/\[{//g" | sed "s/\"//g" | sed "s/\utterance://g")
+	transcript=$(curl -X POST http://${IP_SERVER}:3000/api/transcript/${MODEL} -H "Content-type: audio/wave" --data-binary "@$filename")
+
+	res=$(echo $transcript | grep -o "\[.*\]" | sed "s/\}\]//g" | sed "s/\[{//g" | sed "s/\"//g" | sed "s/\utterance://g" | sed "s/acousticScore.*//g" | sed "s/,//g")
 	echo ${filename##*/}:${res} >> $destFile
 	totalAudio=$((totalAudio + 1))
 done
@@ -45,6 +46,11 @@ do
 	do
 		arrName=($lineName)
 		size=`expr ${#arrName[@]} - 1`
+
+		if [ "$size" -eq "0" ]; then
+		   size=1
+		fi
+
 		palier=`expr 100 / $size`
 
 		if [[ $lineTranscript == *"${arrName[0]}"* ]]; then
