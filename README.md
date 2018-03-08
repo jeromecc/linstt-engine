@@ -23,7 +23,7 @@ ___
 If you use an windows it is recommended to clone the project with this command the command bellow, it will format the shell file for an unix system. 
 Run `git config --global core.autocrlf input` 
 Otherwise use he command bellow :
-Run `git clone --recurse-submodules https://ci.linagora.com/linagora/lgs/labs/linstt-poc.git`
+Run `git clone --recurse-submoduleshttps://github.com/linto-ai/linstt-engine.git`
 
 You will probably need to pull all submodule : `git pull --recurse-submodules origin master`
 
@@ -231,3 +231,102 @@ This endpoint expects the request body to be a wav file
 
 **Info:**
   Lower is better for the value acousticScore. The lower is, the more accurate will be the utterance
+
+
+## Model Command French Only
+
+### User defined commands:
+
+ - `*`AIDE`*`			
+ - `*`BONJOUR`*`|`*`SALUT`*`	
+ - `*`COMMENT`*` `*`APPELLE`*`
+ - `*`MERCI`*`			
+ - `*`AU REVOIR`*`|`*`BYE`*`	
+ - `*`ANNULE`*`|`*`TERMINE`*`
+ - `*`ENCORE`*`			
+ - `*`TEST`*`			
+ - `*`VERSION`*`
+ - `*`REPETE(`*`) ET (`*`)	
+ - `*`CA VA`*`
+	 - >`*`OUI`*`
+	 - >`*`NON`*`|`*`PAS`*`
+
+### Commands from plugin jarvis-air-quality-france:
+
+ - `*`POLLUTION`*` `*`A (`*`)|`*`POLLU
+ - `*`POLLUTION`*`
+
+### Commands from plugin jarvis-auto-cluster:
+
+ - `*`ETAT`*`CLUSTER`*`					
+ - `*`DEMANDE A ALEX A(``*``)|``*``
+ -  `*`DEMANDE A ([^ ]+) (`*`)|
+
+### Commands from plugin jarvis-bruitages:
+ 
+ - `*`FAI`*` (`*`)		
+ -  QUE`*`BRUITAGE`*`		
+
+### Commands from plugin jarvis-ephemeride:
+
+ - `*`FETE`*`JOUR`*`|`*`LA`*`SAINT`*`|
+
+### Commands from plugin jarvis-google-map-traffic:
+
+ - `*`TRAFIC ENTRE (`*`) ET (`*` `*`TRAFIC`*`
+
+### Commands from plugin jarvis-hue:
+ - `*`LUMIERE`*`A ([^ %]+)`*`	
+ - `*`LUMIERE`*`EN (`*`)		
+ - `*`ALLUME`*`LUMIERE
+ - `*`ETEIN`*`LUMIERE
+
+### Commands from plugin jarvis-laPresse:
+
+ - `*`ACTUALITE`*`QUEBEC`*`
+
+### Commands from plugin jarvis-leMonde:
+
+ - `*`ACTUALITE`*`JOUR`*`	
+ - `*`ACTUALITE`*`BRIQUE (`*`)	
+ - `*`AJOUTE`*`FAVORI`*`BRIQUE (
+ - `*`LIST`*`BRIQUE`*`FAVORI`*`	
+ - `*`LIST`*`BRIQUE`*`
+
+### Commands from plugin jarvis-pense-bete:
+
+ - `*`RAPPELLE`*`MOI`*`DE (`*`)|`*`P 
+ - `*`SUPPRIME`*`PENSE`*`|`*`VIDE`*` 
+	 - >`*`OUI`*`
+	 - >`*`NON`*`			
+ - `*`LI`*`PENSE`*`|`*`QUOI`*`DANS`*`P 
+ - `*`ENVOI`*`PENSE`*`
+
+### Commands from plugin jarvis-picamera:
+ - `*`PHOTO`*`ENVOI`*`MAIL`*`	
+ - `*`VIDEO`*`ENVOI`*`MAIL`*`
+ - `*`PHOTO`*`ENVOI`*`FACEBOOK`*`
+ - `*`PHOTO`*`DISCRET`*`
+ - `*`PREND`*`PHOTO`*`
+ - `*`VIDEO`*`DISCRET`*`
+ - `*`PREND`*`VIDEO`*`
+
+### Commands from plugin jarvis-spell:
+
+ - COMMENT`*`ECRIT`*`ON (`*`)
+
+### Commands from plugin jarvis-time:
+ - `*`QUELLE HEURE`*`		
+ - `*`QUEL JOUR`*`
+
+### Commands from plugin jarvis-weather-wunderground-fr:
+
+ - `*`METEO`*`DEMAIN`*`		
+ - `*`METEO`*`
+
+### Commands from plugin jarvis-wikipedia:
+
+ - `*`DONNE`*`DEFINITION`*`DE (`*`
+
+
+
