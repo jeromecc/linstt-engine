@@ -1,0 +1,24 @@
+# Requirement Noise reduce
+
+appdirs==1.4.3
+audioread==2.1.4
+Cython==0.25.2
+decorator==4.0.11
+joblib==0.11
+librosa==0.5.0
+packaging==16.8
+pysndfx
+pyparsing==2.2.0
+python-speech-features==0.5
+resampy==0.1.5
+scikit-learn==0.18.1
+scipy==0.19.0
+six==1.10.0
+soundfile
+
+# Default requirement worker
+
+ws4py
+configparser
+tenacity
+pydub
