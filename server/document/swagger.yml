@@ -1,0 +1,80 @@
+swagger: "2.0"
+
+info:
+  version: 1.0.0
+  title: LinSTT
+  description: A simple way to test LinSTT API to learn how to use API
+
+schemes:
+  - http
+host: localhost:8888
+basePath: /
+
+paths:
+  /client/post/speech:
+    post:
+      summary: Gets transcription from audio
+      description: Returns a transcription from audio
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "wavFile"
+        in: "formData"
+        description: "file to upload"
+        required: true
+        type: "file"
+      responses:
+        200:
+          description: Transcription Succeded
+          schema:
+            type: "object"
+            properties:
+              transcript:
+                type: "object"
+                properties:
+                  transcription:
+                    type: "string"
+                  uuid:
+                    type: "string"
+                  trust_ind:
+                    type: "string"
+  /upload:
+    post:
+      summary: Gets transcription from audio
+      description: Returns a transcription from audio
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "wavFile"
+        in: "formData"
+        description: "file to upload"
+        required: true
+        type: "file"
+      responses:
+        200:
+          description: Transcription Succeded
+          schema:
+            type: "object"
+            properties:
+              transcript:
+                type: "object"
+                properties:
+                  transcription:
+                    type: "string"
+                  uuid:
+                    type: "string"
+                  trust_ind:
+                    type: "string"
+  /:
+    get:
+      summary: Get ReadMe
+      description: Get documentation file
+      produces:
+      - "text/html; charset=UTF-8"
+      responses:
+        200:
+          description: Texte document

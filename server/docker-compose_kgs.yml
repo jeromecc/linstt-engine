@@ -1,0 +1,29 @@
+version: '3.2'
+
+services:
+
+  stt-worker-kaldi:
+    build: modules/worker_offline/
+    image: linagora/stt-worker
+    depends_on:
+      - stt-server
+    volumes:
+      - ${MODEL_PATH}:/opt/models
+      - ${MODEL_CONFIG}:/opt/worker.config
+    env_file: .env
+    environment:
+      - MODEL_CONFIG
+      - MODEL_PATH
+      - OFFLINE_PORT
+
+  stt-server:
+    build: .
+    image: linagora/stt-server
+    hostname: stt-server
+    expose:
+      - ${OFFLINE_PORT}
+    ports:
+      - ${OFFLINE_PORT}:${OFFLINE_PORT}
+    env_file: .env
+    environment:
+      - OFFLINE_PORT
