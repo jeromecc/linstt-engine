@@ -26,13 +26,13 @@ pip install tornado
 Or
 
 ```
-pip install -r recquirements.txt
+pip install -r requirements.txt
 ```
 within the modules/server folder.
 
 #### Kaldi model
-The ASR server that will be setup here require kaldi model, note that the model is not included in the depository.
-You must have this model on your machine. You must also check that the model have the specific files bellow :
+The ASR server that will be setup here require kaldi model, note that the model is not included in the repository.
+You must have this model on your machine. You must also check that the model has the specific files bellow :
 - final.alimdl
 - final.mat
 - final.mdl
@@ -79,7 +79,7 @@ And run the test script:
 ```
 ./deployement_test.sh <langageModelPath>
 ```
-The test should display "Test succefull"
+The test should display "Test successful"
 ## Deployment
 
 ### Docker-Compose deployment
@@ -116,14 +116,14 @@ Run LinStt-Service with documentation and swagger (localhost)
  
 #### 2- Worker
 You can launch as many workers as you want on any machine that you want.
-* Configure the worker by editing the server.conf file, provide the server IP adress ans server port.
+* Configure the worker by editing the server.conf file, provide the server IP address and server port.
 * Launch the worker using the start_docker.sh command
 
 ```
 cd modules/worker_offline
 ./start_docker.sh <langageModelPath>
 ```
-For example if yout model is located at ~/speech/models/mymodel
+For example if your model is located at ~/speech/models/mymodel
 With mymodel folder containing the following files:
 - final.alimdl
 - final.mat
@@ -152,7 +152,6 @@ cd modules/worker_offline
 
 See the [LICENSE.md](LICENSE.md) file for details.
 
-## Acknowledgments
+## Acknowledgements
 
 * The project has been vastly inspired by [Alumae](https://github.com/alumae)'s project [kaldi-gstreamer-server](https://github.com/alumae/kaldi-gstreamer-server) and use chunk of his code.
-
